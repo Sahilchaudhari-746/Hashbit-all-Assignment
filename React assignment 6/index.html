@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .movie-item {
+            flex: 1 0 21%;
+            margin: 1.5%;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 6px;
+            margin-bottom: 17px;
+            padding: 13px;
+        }
+        .movie-item:hover{
+            box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+        }
+        .movie-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        body {
+            background-color: rgb(79, 78, 78);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">List of Movies</h1>
+        <div class="movie-grid">
+            <div class="movie-item">
+                <img src="images/movie1.jpg" alt="Movie 1">
+                <h5>Space Movie</h5>
+                <a href="details.html?id=1" class="btn btn-primary">Details</a>
+                <p></p>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie2.jpg" alt="Movie 2">
+                <h5>Freedom</h5>
+                <a href="details.html?id=2" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie3.jpeg" alt="Movie 3">
+                <h5>Never More</h5>
+                <a href="details.html?id=3" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie4.jpg" alt="Movie 4">
+                <h5>Panther</h5>
+                <a href="details.html?id=4" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie5.jpg" alt="Movie 5">
+                <h5>Avengers Infinity war</h5>
+                <a href="details.html?id=5" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie6.jpg" alt="Movie 6">
+                <h5>Dora the lost city of gold</h5>
+                <a href="details.html?id=6" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie7.jpeg" alt="Movie 7">
+                <h5>Aladdin</h5>
+                <a href="details.html?id=7" class="btn btn-primary">Details</a>
+            </div>
+            <div class="movie-item">
+                <img src="images/movie8.jpg" alt="Movie 8">
+                <h5>Thalvar</h5>
+                <a href="details.html?id=8" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

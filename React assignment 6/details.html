@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(79, 78, 78);
+            color: white;
+        }
+        .movie-details-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .movie-image {
+            flex: 1;
+            max-width: 400px;
+            margin-right: 20px;
+            box-shadow: rgba(154, 153, 153, 0.35) 0px 5px 15px;
+        }
+        .movie-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .movie-info {
+            flex: 2;
+            font-size: 1.2rem;
+        }
+        .movie-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .movie-info p {
+            margin-bottom: 15px;
+        }
+        .book-button {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .book-button a {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Movie Details</h1>
+        <div class="movie-details-container" id="movie-details"></div>
+        <div class="book-button">
+            <a href="booking.html" class="btn btn-success">Book Seat</a>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get('id');
+
+        const movieDetails = {
+            1: { title: 'Space Movie', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '8.5/10', watchTime: '2h 30m', image: 'images/movie1.jpg' },
+            2: { title: 'Freedom', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '7.2/10', watchTime: '1h 50m', image: 'images/movie2.jpg' },
+            3: { title: 'Never More', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '6.8/10', watchTime: '2h 10m', image: 'images/movie3.jpeg' },
+            4: { title: 'Panther', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '9.0/10', watchTime: '2h 45m', image: 'images/movie4.jpg' },
+            5: { title: 'Avengers Infinity war', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '7.5/10', watchTime: '2h 20m', image: 'images/movie5.jpg' },
+            6: { title: 'Dora the lost city of gold', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '8.1/10', watchTime: '2h 5m', image: 'images/movie6.jpg' },
+            7: { title: 'Aladdin', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '6.9/10', watchTime: '1h 55m', image: 'images/movie7.jpeg' },
+            8: { title: 'Thalvar', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla natus, saepe excepturi sequi doloribus repellendus tempore, autem numquam omnis ut est iusto doloremque consequuntur animi nihil totam! Unde, repellendus harum rem ea mollitia esse ipsa? Accusamus hic exercitationem magnam earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates?', rating: '7.8/10', watchTime: '2h 15m', image: 'images/movie8.jpg' }
+        };
+
+        const movie = movieDetails[movieId];
+
+        document.getElementById('movie-details').innerHTML = `
+            <div class="movie-image">
+                <img src="${movie.image}" alt="${movie.title}">
+            </div>
+            <div class="movie-info">
+                <h2>${movie.title}</h2>
+                <p><strong>Description:</strong> ${movie.description}</p>
+                <p><strong>Rating:</strong> ${movie.rating}</p>
+                <p><strong>Watch Time:</strong> ${movie.watchTime}</p>
+            </div>
+        `;
+    </script>
+</body>
+</html>
